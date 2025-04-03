@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience & Projects - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #f72585;
+            --gradient-bg: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #495057;
+            --text-color: #212529;
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition-speed: 0.3s ease;
+            --dark-color: #0f172a;
+            --light-color: #f8fafc;
+            --grey-color: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #f2f5fc;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--gradient-bg);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .menu-item {
+            margin-left: 1.5rem;
+            font-weight: 500;
+            padding: 0.8rem 1.2rem;
+            position: relative;
+            color: white;
+            border-radius: 30px;
+            transition: all var(--transition-speed);
+            text-decoration: none; /* Added to remove underline */
+        }
+
+        .menu-item:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .menu-item.active {
+            background: rgba(255,255,255,0.25);
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        main {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--dark-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        .section-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .experience-item {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-speed);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .position {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .company {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .duration, .location {
+            font-size: 0.95rem;
+            color: var(--grey-color);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .duration i, .location i {
+            font-size: 1rem;
+            color: var(--primary-color);
+        }
+
+        .description {
+            margin-top: 20px;
+        }
+
+        .description ul {
+            list-style-type: none;
+        }
+
+        .description li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .description li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        #expertise {
+            padding: 60px 0;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 60px;
+        }
+
+        #expertise h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            color: var(--dark-color);
+        }
+
+        #expertise h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        .expertise-category {
+            padding: 25px;
+            margin-bottom: 30px;
+            position: relative;
+            background-color: #f8fafc;
+            border-radius: 10px;
+            transition: var(--transition-speed);
+        }
+
+        .expertise-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .expertise-category h3 {
+            font-size: 1.3rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .expertise-category h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 20px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+        }
+
+        .expertise-category p {
+            margin-bottom: 12px;
+        }
+
+        .expertise-category strong {
+            color: var(--primary-color);
+        }
+
+        .projects-section {
+            margin-top: 60px;
+            padding: 40px 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            background: linear-gradient(135deg, #f0f4fd, #e3ebfa);
+        }
+
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--grey-color);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition-speed);
+        }
+
+        .github-link {
+            background-color: #171515;
+            color: white;
+        }
+
+        .github-link:hover {
+            background-color: #000;
+            transform: translateY(-2px);
+        }
+
+        .demo-link {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .demo-link:hover {
+            background-color: #3957d8;
+            transform: translateY(-2px);
+        }
+
+        .code-profiles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .code-profile-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            color: white;
+            transition: var(--transition-speed);
+        }
+
+        .code-profile-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .leetcode {
+            background-color: #F89F1B;
+        }
+
+        .gfg {
+            background-color: #2f8d46;
+        }
+
+        .hackerrank {
+            background-color: #2ec866;
+        }
+
+        .web-app-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .web-app-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            color: white;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: var(--transition-speed);
+        }
+
+        .web-app-link:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-speed);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--grey-color);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary-color);
+                flex-direction: column;
+                text-align: center;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease;
+            }
+
+            .menu.show {
+                display: flex;
+                max-height: 500px;
+                transition: max-height 0.5s ease;
+            }
+
+            .menu-item {
+                margin: 0;
+                padding: 1.2rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                width: 100%;
+                border-radius: 0;
+                text-decoration: none; /* Added to remove underline in mobile view */
+            }
+            
+            .menu-item:last-child {
+                border-bottom: none;
+            }
+            
+            .menu-item:hover, .menu-item.active {
+                background: rgba(255,255,255,0.15);
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">MyPortfolio</a>
+            <button class="menu-btn">☰</button>
+            <nav class="menu">
+                <a href="education.html" class="menu-item">Education</a>
+                <a href="experience.html" class="menu-item active">Experience</a>
+                <a href="projects.html" class="menu-item">Projects</a>
+                <a href="skills.html" class="menu-item">Skills</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="section-title">Work Experience</h1>
+            <div class="section-content">
+                <div class="experience-item">
+                    <h2 class="position">Teaching Assistant</h2>
+                    <p class="company">Coursera - Digital Learning Platform</p>
+                    <p class="duration"><i class="fas fa-calendar-alt"></i> Nov 2023 - Apr 2024</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Guwahati, Assam</p>
+                    <div class="description">
+                        <ul>
+                            <li>Assisted over 375 students in C Programming and Foundations of Data Science courses as part of the Online B.Sc. (Hons.) in Data Science and Artificial Intelligence program organized by IIT Guwahati on Coursera.</li>
+                            <li>Conducted lab sessions, evaluated assignments, addressed queries, and created questions to enhance learning.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <h2 class="position">Freelancer | Chegg Q&A Subject Matter Expert</h2>
+                    <p class="company">Chegg India Pvt. Ltd.</p>
+                    <p class="duration"><i class="fas fa-calendar-alt"></i> Sep 2020 - Mar 2023</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                    <div class="description">
+                        <ul>
+                            <li>With over 2.5 years of experience, solved Advanced and General Mathematics problems on the Chegg platform.</li>
+                            <li>Provided clear and easy-to-understand explanations to help students improve their understanding of concepts.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="expertise">
+                <h2>Expertise & Coding Profiles</h2>
+                <div class="expertise-category">
+                    <h3>DSA Problem Solver</h3>
+                    <p>I regularly solve Data Structures and Algorithms problems on various platforms:</p>
+                    <div class="code-profiles">
+                        <a href="https://leetcode.com/u/Ddiasi/" target="_blank" class="code-profile-link leetcode">
+                            <i class="fas fa-code"></i> LeetCode
+                        </a>
+                        <a href="https://www.geeksforgeeks.org/user/digantadiasi7/" target="_blank" class="code-profile-link gfg">
+                            <i class="fas fa-laptop-code"></i> GeeksForGeeks
+                        </a>
+                        <a href="https://www.hackerrank.com/profile/digantadiasi7" target="_blank" class="code-profile-link hackerrank">
+                            <i class="fas fa-terminal"></i> HackerRank
+                        </a>
+                    </div>
+                </div>
+                <div class="expertise-category">
+                    <h3>Web Applications</h3>
+                    <p>Check out my interactive web applications:</p>
+                    <div class="web-app-links">
+                        <a href="https://joyful-axolotl-96df38.netlify.app/" target="_blank" class="web-app-link">
+                            <i class="fas fa-project-diagram"></i> Algorithm Visualizer
+                        </a>
+                        <a href="https://huggingface.co/spaces/digantadiasi7/DIgantaDiasi" target="_blank" class="web-app-link">
+                            <i class="fas fa-robot"></i> Deepfake Detection App
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-section">
+                <h1 class="section-title">Featured Projects</h1>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Algorithm Visualizer</h3>
+                            <p class="project-description">
+                                An interactive web application that visually demonstrates various sorting and pathfinding algorithms in real-time, helping users understand complex algorithms through animation.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/yourusername/algorithm-visualizer" target="_blank" class="project-link github-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="https://joyful-axolotl-96df38.netlify.app/" target="_blank" class="project-link demo-link">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Deepfake Detection App</h3>
+                            <p class="project-description">
+                                A machine learning application that analyzes images and videos to detect potential deepfakes, helping users identify manipulated media with high accuracy.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/yourusername/deepfake-detection" target="_blank" class="project-link github-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="https://huggingface.co/spaces/digantadiasi7/DIgantaDiasi" target="_blank" class="project-link demo-link">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Machine Learning Portfolio</h3>
+                            <p class="project-description">
+                                A collection of machine learning projects showcasing expertise in various algorithms, data processing techniques, and model evaluation methods.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/yourusername/ml-portfolio" target="_blank" class="project-link github-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="#" target="_blank" class="project-link demo-link">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Portfolio</div>
+                <div class="social-links">
+                    <a href="https://github.com/digantadiasi195" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/digantadiasi/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/diganta_diasi" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="digantadiasi7@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="copyright">© 2025 Diganta Diasi. All Rights Reserved</div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
