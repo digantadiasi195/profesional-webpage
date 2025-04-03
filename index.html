@@ -74,7 +74,7 @@
             background: rgba(255,255,255,0.1);
             padding: 5px 15px;
             border-radius: 30px;
-            text-decoration: none; /* Added to remove underline from the logo */
+            text-decoration: none;
         }
 
         .menu-btn {
@@ -103,20 +103,20 @@
             color: white;
             border-radius: 30px;
             transition: all var(--transition-speed);
-            font-size: 1.1rem; /* Increased font size */
-            text-decoration: none; /* Ensure no underline */
+            font-size: 1.1rem;
+            text-decoration: none;
         }
 
         .menu-item:hover {
             background: rgba(255,255,255,0.2);
-            text-decoration: none; /* Ensure no underline on hover */
+            text-decoration: none;
         }
 
         .menu-item.active {
             background: rgba(255,255,255,0.25);
             font-weight: 600;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-decoration: none; /* Ensure no underline when active */
+            text-decoration: none;
         }
 
         @media (max-width: 768px) {
@@ -151,8 +151,8 @@
                 border-bottom: 1px solid rgba(255,255,255,0.1);
                 width: 100%;
                 border-radius: 0;
-                font-size: 1.1rem; /* Increased font size in mobile view */
-                text-decoration: none; /* Ensure no underline in mobile view */
+                font-size: 1.1rem;
+                text-decoration: none;
             }
             
             .menu-item:last-child {
@@ -161,11 +161,10 @@
             
             .menu-item:hover, .menu-item.active {
                 background: rgba(255,255,255,0.15);
-                text-decoration: none; /* Ensure no underline on hover/active in mobile view */
+                text-decoration: none;
             }
         }
 
-        /* Rest of your original styles remain unchanged */
         .hero {
             display: grid;
             grid-template-columns: 1fr auto 1fr;
@@ -647,6 +646,23 @@
             box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
         }
 
+        /* Thank You Message Styles */
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+            color: #2c3e50;
+            font-weight: 500;
+            background: rgba(46, 204, 113, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .thank-you-message.show {
+            display: block;
+        }
+
         /* Chat Interface Styles */
         .chat-interface {
             position: fixed;
@@ -903,21 +919,28 @@
         <div class="modal-content">
             <button class="close-modal" onclick="closeModal()">×</button>
             <h2 style="margin-bottom: 20px; font-size: 24px;">Get in Touch</h2>
-            <form class="contact-form" onsubmit="submitForm(event)">
+            <form action="https://formspree.io/f/mnqybolv" method="POST" class="contact-form" id="contactForm">
+                <!-- Hidden fields for better email delivery -->
+                <input type="hidden" name="_replyto" value="digantadiasi7@gmail.com">
+                <input type="hidden" name="_subject" value="New Message From Portfolio Contact Form">
+                
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" required>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" required></textarea>
+                    <textarea id="message" name="message" required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
+            <div class="thank-you-message" id="thankYouMessage">
+                Thank you for your message! I'll get back to you soon.
+            </div>
         </div>
     </div>
 
@@ -990,6 +1013,7 @@
 
         function closeModal() {
             modal.classList.remove('show');
+            resetForm();
         }
 
         modal.addEventListener('click', (e) => {
@@ -998,16 +1022,54 @@
             }
         });
 
-        function submitForm(e) {
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
             
-            const mailtoLink = `mailto:digantadiasi7@gmail.com?subject=Portfolio Contact from ${name}&body=${message}%0D%0A%0D%0AFrom: ${name}%0D%0AEmail: ${email}`;
-            window.location.href = mailtoLink;
-            closeModal();
-            e.target.reset();
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Hide form and show thank you message
+            this.style.display = 'none';
+            document.getElementById('thankYouMessage').classList.add('show');
+            
+            // Submit to Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Form submission failed');
+                }
+                // Close modal after 3 seconds
+                setTimeout(closeModal, 3000);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Show error message
+                document.getElementById('thankYouMessage').textContent = 'Error sending message. Please try again.';
+                document.getElementById('thankYouMessage').style.color = '#e74c3c';
+                // Show form again
+                this.style.display = 'block';
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            });
+        });
+
+        function resetForm() {
+            const form = document.getElementById('contactForm');
+            form.style.display = 'block';
+            form.reset();
+            document.getElementById('thankYouMessage').classList.remove('show');
+            document.getElementById('thankYouMessage').style.color = '';
         }
 
         // Chat interface functionality
