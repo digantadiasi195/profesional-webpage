@@ -115,50 +115,10 @@
             margin-bottom: 40px;
             text-align: center;
             color: var(--dark-color);
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 70px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-        
-        .section-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 40px;
         }
         
         .project-item {
-            background: #fff;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            padding: 30px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .project-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            margin-bottom: 40px;
         }
         
         .project-title {
@@ -171,67 +131,37 @@
             color: var(--gray-color);
             font-size: 0.9rem;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .project-duration::before {
-            content: '\f073';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            margin-right: 8px;
-            color: var(--accent-color);
         }
         
         .project-description {
             margin-bottom: 20px;
             color: var(--dark-color);
-            flex-grow: 1;
         }
         
         .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
             margin-bottom: 20px;
         }
         
         .tech-tag {
+            display: inline-block;
             background-color: var(--gray-light);
             color: var(--dark-color);
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 500;
-            transition: var(--transition);
+            margin-right: 10px;
+            margin-bottom: 10px;
         }
         
         .features-list {
             margin: 20px 0;
             padding-left: 20px;
-        }
-        
-        .features-list li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 15px;
-        }
-        
-        .features-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 10px;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--secondary-color);
+            list-style-type: disc;
         }
         
         .project-links {
-            display: flex;
-            gap: 15px;
-            margin-top: auto;
+            margin-top: 20px;
         }
         
         .project-link {
@@ -244,38 +174,17 @@
             border-radius: 6px;
             font-weight: 500;
             font-size: 0.9rem;
-            transition: var(--transition);
+            margin-right: 15px;
         }
         
-        .project-link:hover {
-            background-color: var(--accent-color);
+        .project-link.demo-link {
+            background-color: var(--secondary-color);
         }
         
         .project-link i {
             margin-right: 8px;
         }
         
-        .demo-link {
-            background-color: var(--secondary-color);
-        }
-        
-        .project-item.research {
-            border-top: 3px solid #3b82f6;
-        }
-        
-        .project-item.healthcare {
-            border-top: 3px solid #10b981;
-        }
-        
-        .project-item.deepfake {
-            border-top: 3px solid #7c3aed;
-        }
-        
-        .project-item.carevision {
-            border-top: 3px solid #ef4444;
-        }
-        
-        /* Footer Styles from experience.html */
         footer {
             background-color: var(--dark-color);
             color: white;
@@ -369,10 +278,6 @@
                 background: rgba(255,255,255,0.15);
             }
             
-            .section-content {
-                grid-template-columns: 1fr;
-            }
-            
             .footer-content {
                 flex-direction: column;
                 gap: 20px;
@@ -398,122 +303,121 @@
     <main>
         <div class="container">
             <h1 class="section-title">Featured Projects</h1>
-            <div class="section-content">
-                <div class="project-item research">
-                    <h2 class="project-title">Academic Research Paper Assistant</h2>
-                    <p class="project-duration">Nov 2024 - Feb 2025</p>
-                    <p class="project-description">Developed a Streamlit-based AI Research Paper Assistant with a FastAPI backend, integrating a multi-agent system for intelligent retrieval, Q&A, summarization, and future research prediction.</p>
-                    
-                    <ul class="features-list">
-                        <li>Neo4j graph-based storage for intelligent knowledge representation</li>
-                        <li>RAG and FAISS for efficient similarity-based retrieval</li>
-                        <li>Multi-agent system for complex research processing</li>
-                        <li>DeepSeek-R1:1.5B LLM integration via Ollama</li>
-                    </ul>
-                    
-                    <div class="tech-stack">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">FastAPI</span>
-                        <span class="tech-tag">Neo4j</span>
-                        <span class="tech-tag">RAG</span>
-                        <span class="tech-tag">FAISS</span>
-                    </div>
-                    
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/research-paper-assistant" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-link demo-link">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
+            
+            <div class="project-item">
+                <h2 class="project-title">Academic Research Paper Assistant</h2>
+                <p class="project-duration">Nov 2024 - Feb 2025</p>
+                <p class="project-description">Developed a Streamlit-based AI Research Paper Assistant with a FastAPI backend, integrating a multi-agent system for intelligent retrieval, Q&A, summarization, and future research prediction.</p>
+                
+                <ul class="features-list">
+                    <li>Neo4j graph-based storage for intelligent knowledge representation</li>
+                    <li>RAG and FAISS for efficient similarity-based retrieval</li>
+                    <li>Multi-agent system for complex research processing</li>
+                    <li>DeepSeek-R1:1.5B LLM integration via Ollama</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">Neo4j</span>
+                    <span class="tech-tag">RAG</span>
+                    <span class="tech-tag">FAISS</span>
                 </div>
-
-                <div class="project-item healthcare">
-                    <h2 class="project-title">AI-Based Healthcare Assistant</h2>
-                    <p class="project-duration">Jan 2024 - May 2024</p>
-                    <p class="project-description">Developed a healthcare assistant by fine-tuning the Llama2-7b language model with a custom dataset from the Gale Encyclopedia of Alternative Medicine.</p>
-                    
-                    <ul class="features-list">
-                        <li>Fine-tuned Llama2-7b using QLoRA for efficiency</li>
-                        <li>Custom dataset preparation from medical encyclopedias</li>
-                        <li>Response generation pipeline with 200 token output</li>
-                        <li>Healthcare-specific prompt engineering</li>
-                    </ul>
-                    
-                    <div class="tech-stack">
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">Transformers</span>
-                        <span class="tech-tag">QLoRA</span>
-                        <span class="tech-tag">LLM Fine-tuning</span>
-                    </div>
-                    
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/healthcare-llm-assistant" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-link demo-link">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
+                
+                <div class="project-links">
+                    <a href="https://github.com/yourusername/research-paper-assistant" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="#" class="project-link demo-link">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
                 </div>
+            </div>
 
-                <div class="project-item deepfake">
-                    <h2 class="project-title">Multi-Modal Deepfake Detection</h2>
-                    <p class="project-duration">Aug 2024 - Present</p>
-                    <p class="project-description">Developed a Multimodal DeepFake Classification model using Graph Attention Networks to detect and classify deepfake videos into four categories.</p>
-                    
-                    <ul class="features-list">
-                        <li>Integration of video and audio modalities</li>
-                        <li>Graph Attention Networks for cross-modal relationships</li>
-                        <li>Training on the FakeAVCeleb dataset</li>
-                        <li>Four-class deepfake classification system</li>
-                    </ul>
-                    
-                    <div class="tech-stack">
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">Computer Vision</span>
-                        <span class="tech-tag">GAT</span>
-                        <span class="tech-tag">Multimodal</span>
-                    </div>
-                    
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/deepfake-detection" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-link demo-link">
-                            <i class="fas fa-flask"></i> Research Paper
-                        </a>
-                    </div>
+            <div class="project-item">
+                <h2 class="project-title">AI-Based Healthcare Assistant</h2>
+                <p class="project-duration">Jan 2024 - May 2024</p>
+                <p class="project-description">Developed a healthcare assistant by fine-tuning the Llama2-7b language model with a custom dataset from the Gale Encyclopedia of Alternative Medicine.</p>
+                
+                <ul class="features-list">
+                    <li>Fine-tuned Llama2-7b using QLoRA for efficiency</li>
+                    <li>Custom dataset preparation from medical encyclopedias</li>
+                    <li>Response generation pipeline with 200 token output</li>
+                    <li>Healthcare-specific prompt engineering</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Transformers</span>
+                    <span class="tech-tag">QLoRA</span>
+                    <span class="tech-tag">LLM Fine-tuning</span>
                 </div>
+                
+                <div class="project-links">
+                    <a href="https://github.com/yourusername/healthcare-llm-assistant" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="#" class="project-link demo-link">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
 
-                <div class="project-item carevision">
-                    <h2 class="project-title">Care Vision AI</h2>
-                    <p class="project-duration">Jan 2024 - May 2024</p>
-                    <p class="project-description">Created AI models to detect medical conditions such as skin cancer, brain tumors, lung cancer, and pneumonia using custom CNN architecture and advanced image processing.</p>
-                    
-                    <ul class="features-list">
-                        <li>Multiple condition detection models (skin, brain, lung)</li>
-                        <li>Custom CNN architecture with transfer learning</li>
-                        <li>SVM and Random Forest classifier integration</li>
-                        <li>Morphological operations for image preprocessing</li>
-                    </ul>
-                    
-                    <div class="tech-stack">
-                        <span class="tech-tag">CNN</span>
-                        <span class="tech-tag">Transfer Learning</span>
-                        <span class="tech-tag">Image Processing</span>
-                        <span class="tech-tag">SVM</span>
-                    </div>
-                    
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/care-vision-ai" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-link demo-link">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
+            <div class="project-item">
+                <h2 class="project-title">Multi-Modal Deepfake Detection</h2>
+                <p class="project-duration">Aug 2024 - Present</p>
+                <p class="project-description">Developed a Multimodal DeepFake Classification model using Graph Attention Networks to detect and classify deepfake videos into four categories.</p>
+                
+                <ul class="features-list">
+                    <li>Integration of video and audio modalities</li>
+                    <li>Graph Attention Networks for cross-modal relationships</li>
+                    <li>Training on the FakeAVCeleb dataset</li>
+                    <li>Four-class deepfake classification system</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">GAT</span>
+                    <span class="tech-tag">Multimodal</span>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://github.com/yourusername/deepfake-detection" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="#" class="project-link demo-link">
+                        <i class="fas fa-flask"></i> Research Paper
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h2 class="project-title">Care Vision AI</h2>
+                <p class="project-duration">Jan 2024 - May 2024</p>
+                <p class="project-description">Created AI models to detect medical conditions such as skin cancer, brain tumors, lung cancer, and pneumonia using custom CNN architecture and advanced image processing.</p>
+                
+                <ul class="features-list">
+                    <li>Multiple condition detection models (skin, brain, lung)</li>
+                    <li>Custom CNN architecture with transfer learning</li>
+                    <li>SVM and Random Forest classifier integration</li>
+                    <li>Morphological operations for image preprocessing</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">CNN</span>
+                    <span class="tech-tag">Transfer Learning</span>
+                    <span class="tech-tag">Image Processing</span>
+                    <span class="tech-tag">SVM</span>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://github.com/yourusername/care-vision-ai" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="#" class="project-link demo-link">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
                 </div>
             </div>
         </div>
@@ -539,15 +443,12 @@
             document.querySelector('.menu').classList.toggle('show');
         });
 
-        // Add click event listeners to menu items
         document.querySelectorAll('.menu-item').forEach(item => {
             item.addEventListener('click', function(e) {
-                // Close the menu when an item is clicked
                 document.querySelector('.menu').classList.remove('show');
             });
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', function(e) {
             const menu = document.querySelector('.menu');
             const menuBtn = document.querySelector('.menu-btn');

@@ -143,85 +143,12 @@
         border-radius: 2px;
     }
 
-    .timeline {
-        position: relative;
-        margin: 60px auto;
-        padding: 40px 0;
-        width: 100%;
-        max-width: 800px;
-    }
-
-    .timeline::before {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: 0;
-        bottom: 0;
-        width: 4px;
-        background: var(--gradient-bg);
-        transform: translateX(-50%);
-        border-radius: 2px;
-    }
-
-    .timeline-item {
-        position: relative;
-        margin-bottom: 60px;
-        width: 50%;
-        padding: 10px 40px;
-    }
-
-    .timeline-item:nth-child(odd) {
-        left: 0;
-        padding-right: 60px;
-        text-align: right;
-    }
-
-    .timeline-item:nth-child(even) {
-        left: 50%;
-        padding-left: 60px;
-        text-align: left;
-    }
-
-    .timeline-icon {
-        position: absolute;
-        top: 15px;
-        width: 50px;
-        height: 50px;
-        background: var(--gradient-bg);
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 1.3rem;
-        z-index: 10;
-        border: 3px solid var(--bg-color);
-        box-shadow: 0 0 0 4px var(--primary-color);
-    }
-
-    .timeline-item:nth-child(odd) .timeline-icon {
-        right: -25px;
-        transform: translateX(50%);
-    }
-
-    .timeline-item:nth-child(even) .timeline-icon {
-        left: -25px;
-        transform: translateX(-50%);
-    }
-
-    .timeline-content {
+    .education-item {
         background-color: var(--card-bg);
-        padding: 30px 35px;
+        padding: 20px;
+        margin-bottom: 20px;
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
-        position: relative;
-        transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        border-top: 5px solid var(--primary-color);
-    }
-
-    .timeline-content:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
 
     .degree {
@@ -248,122 +175,40 @@
         border-radius: 20px;
     }
 
-    .timeline-content::before {
-        content: '';
-        position: absolute;
-        top: 20px;
-        width: 0;
-        height: 0;
-        border-style: solid;
+    .courses-section {
+        margin-top: 2rem;
     }
 
-    .timeline-item:nth-child(odd) .timeline-content::before {
-        right: -15px;
-        border-width: 10px 0 10px 15px;
-        border-color: transparent transparent transparent var(--card-bg);
-    }
-
-    .timeline-item:nth-child(even) .timeline-content::before {
-        left: -15px;
-        border-width: 10px 15px 10px 0;
-        border-color: transparent var(--card-bg) transparent transparent;
-    }
-
-    .skills-section {
+    .courses-columns {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
     }
 
-    .card {
+    .course-category {
         background-color: var(--card-bg);
-        padding: 30px;
+        padding: 20px;
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
-        transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        border-bottom: 5px solid var(--primary-color);
-    }
-    
-    .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
 
     .category-title {
         font-size: 1.5rem;
         color: var(--primary-color);
-        margin-bottom: 1.8rem;
+        margin-bottom: 1rem;
         border-bottom: 2px solid var(--medium-gray);
-        padding-bottom: 0.8rem;
-        display: flex;
-        align-items: center;
-    }
-    
-    .category-title i {
-        margin-right: 12px;
-        color: var(--accent-color);
-        font-size: 1.3em;
+        padding-bottom: 0.5rem;
     }
 
-    .skills-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
+    .course-list {
+        list-style: none;
     }
 
-    .skill-item {
-        background-color: var(--light-gray);
-        padding: 0.6rem 1.2rem;
-        border-radius: 20px;
+    .course-item {
+        padding: 0.5rem 0;
         font-size: 0.95rem;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border: 1px solid var(--medium-gray);
-        transition: all var(--transition-speed);
-        flex-grow: 1;
-    }
-    
-    .skill-item:hover {
-        background-color: var(--secondary-color);
-        color: white;
-        border-color: var(--secondary-color);
-    }
-    
-    .skill-item:hover .skill-level {
-        background-color: rgba(255,255,255,0.25);
-        color: white;
     }
 
-    .skill-level {
-        font-size: 0.75rem;
-        font-weight: 600;
-        margin-left: 1rem;
-        padding: 0.25rem 0.8rem;
-        border-radius: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        transition: all var(--transition-speed);
-    }
-
-    .skill-level.intermediate {
-        background-color: #4cc9f0;
-        color: #044863;
-    }
-    
-    .skill-level.advanced {
-        background-color: #4895ef;
-        color: #043b7a;
-    }
-    
-    .skill-level.expert {
-        background-color: #f72585;
-        color: white;
-    }
-
-    /* Updated Footer Styles to match the image */
     footer {
         background-color: var(--dark-gray);
         color: white;
@@ -458,47 +303,12 @@
             background: rgba(255,255,255,0.15);
         }
 
-        .timeline::before {
-            left: 30px;
-        }
-
-        .timeline-item {
-            width: 100%;
-            padding-left: 70px;
-            padding-right: 15px;
-            left: 0 !important;
-            text-align: left !important;
-        }
-
-        .timeline-icon {
-            left: 5px;
-            transform: translateX(0);
-        }
-
-        .timeline-content::before {
-            left: -15px;
-            border-width: 10px 15px 10px 0;
-            border-color: transparent var(--card-bg) transparent transparent;
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            border-color: transparent var(--card-bg) transparent transparent;
-            right: auto;
-            left: -15px;
-        }
-
         .section-title {
             font-size: 2rem;
         }
 
-        .skills-section {
+        .courses-columns {
             grid-template-columns: 1fr;
-        }
-
-        .footer-content {
-            flex-direction: column;
-            gap: 20px;
-            text-align: center;
         }
     }
     </style>
@@ -521,83 +331,68 @@
         <div class="container">
             <h1 class="section-title">Educational Journey</h1>
 
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="timeline-content">
-                        <h2 class="degree">M.Tech (Data Science)</h2>
-                        <p class="institution">Indian Institute of Technology, Guwahati</p>
-                        <p class="year">2023 - Present</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="timeline-content">
-                        <h2 class="degree">M.Tech (CS & Data Processing)</h2>
-                        <p class="institution">Indian Institute of Technology, Kharagpur</p>
-                        <p class="year">2021 - 2023</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                     <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="timeline-content">
-                        <h2 class="degree">M.Sc. (Applied Mathematics)</h2>
-                        🙂<p class="institution">Vidyasagar University, West Bengal</p>
-                        <p class="year">2018 - 2020</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                     <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="timeline-content">
-                        <h2 class="degree">B.Sc. (Mathematics Hons.)</h2>
-                        <p class="institution">Vidyasagar University, West Bengal</p>
-                        <p class="year">2014 - 2018</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon"><i class="fas fa-school"></i></div>
-                    <div class="timeline-content">
-                        <h2 class="degree">Higher Secondary</h2>
-                        <p class="institution">West Bengal State Board</p>
-                        <p class="year">2014</p>
-                    </div>
-                </div>
+            <div class="education-item">
+                <h2 class="degree">M.Tech (Data Science)</h2>
+                <p class="institution">Indian Institute of Technology, Guwahati</p>
+                <p class="year">2023 - Present</p>
             </div>
 
-            <h2 class="section-title">Key Courses & Proficiencies</h2>
-            
-            <div class="skills-section">
-                <div class="skills-category card">
-                    <h3 class="category-title"><i class="fas fa-brain"></i> Data Science</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">Machine Learning <span class="skill-level advanced">Advanced</span></div>
-                        <div class="skill-item">Deep Learning <span class="skill-level advanced">Advanced</span></div>
-                        <div class="skill-item">NLP with LLMs <span class="skill-level intermediate">Intermediate</span></div>
-                        <div class="skill-item">Image Processing with ML <span class="skill-level advanced">Advanced</span></div>
-                    </div>
-                </div>
+            <div class="education-item">
+                <h2 class="degree">M.Tech (CS & Data Processing)</h2>
+                <p class="institution">Indian Institute of Technology, Kharagpur</p>
+                <p class="year">2021 - 2023</p>
+            </div>
 
-                <div class="skills-category card">
-                    <h3 class="category-title"><i class="fas fa-laptop-code"></i> Computer Science</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">Data Structures & Algorithms <span class="skill-level advanced">Advanced</span></div>
-                        <div class="skill-item">OOPs <span class="skill-level intermediate">Intermediate</span></div>
-                        <div class="skill-item">Database Management <span class="skill-level advanced">Advanced</span></div>
-                        <div class="skill-item">Operating Systems <span class="skill-level intermediate">Intermediate</span></div>
-                    </div>
-                </div>
+            <div class="education-item">
+                <h2 class="degree">M.Sc. (Applied Mathematics)</h2>
+                <p class="institution">Vidyasagar University, West Bengal</p>
+                <p class="year">2018 - 2020</p>
+            </div>
 
-                <div class="skills-category card">
-                    <h3 class="category-title"><i class="fas fa-calculator"></i> Mathematics</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">Linear Algebra <span class="skill-level expert">Expert</span></div>
-                        <div class="skill-item">Probability & Statistics <span class="skill-level advanced">Advanced</span></div>
-                        <div class="skill-item">Optimization Techniques <span class="skill-level advanced">Advanced</span></div>
-                        <div class="skill-item">Matrix Computations <span class="skill-level intermediate">Intermediate</span></div>
+            <div class="education-item">
+                <h2 class="degree">B.Sc. (Mathematics Hons.)</h2>
+                <p class="institution">Vidyasagar University, West Bengal</p>
+                <p class="year">2014 - 2018</p>
+            </div>
+
+            <div class="education-item">
+                <h2 class="degree">Higher Secondary</h2>
+                <p class="institution">West Bengal State Board</p>
+                <p class="year">2014</p>
+            </div>
+
+            <div class="courses-section">
+                <h2Upd class="section-title">Key Courses</h2>
+
+                <div class="courses-columns">
+                    <div class="course-category">
+                        <h3 class="category-title">Data Science</h3>
+                        <ul class="course-list">
+                            <li class="course-item">Machine Learning</li>
+                            <li class="course-item">Deep Learning</li>
+                            <li class="course-item">NLP with LLMs</li>
+                            <li class="course-item">Image Processing with ML</li>
+                        </ul>
+                    </div>
+
+                    <div class="course-category">
+                        <h3 class="category-title">Computer Science</h3>
+                        <ul class="course-list">
+                            <li class="course-item">Data Structures & Algorithms</li>
+                            <li class="course-item">OOPs</li>
+                            <li class="course-item">Database Management</li>
+                            <li class="course-item">Operating Systems</li>
+                        </ul>
+                    </div>
+
+                    <div class="course-category">
+                        <h3 class="category-title">Mathematics</h3>
+                        <ul class="course-list">
+                            <li class="course-item">Linear Algebra</li>
+                            <li class="course-item">Probability & Statistics</li>
+                            <li class="course-item">Optimization Techniques</li>
+                            <li class="course-item">Matrix Computations</li>
+                        </ul>
                     </div>
                 </div>
             </div>

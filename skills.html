@@ -13,8 +13,6 @@
             --dark-color: #1e293b;
             --light-color: #f8fafc;
             --accent-color: #7c3aed;
-            --error-color: #ef4444;
-            --warning-color: #f59e0b;
             --gray-color: #64748b;
             --gray-light: #e2e8f0;
             --border-radius: 12px;
@@ -42,7 +40,7 @@
             padding: 0 20px;
         }
         
-        /* Header Styles from projects.html */
+        /* Header Styles */
         header {
             background: var(--gradient-bg);
             box-shadow: var(--shadow);
@@ -111,413 +109,57 @@
         
         /* Main Content Styles */
         main {
-            padding: 60px 0;
+            padding: 40px 0;
         }
         
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
             color: var(--dark-color);
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 70px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-        
-        .section-content {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
+            font-weight: 600;
         }
         
         .skills-category {
             background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            padding: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skills-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-        }
-        
-        .skills-category:nth-child(1)::before {
-            background: linear-gradient(to right, var(--primary-color), #4f46e5);
-        }
-        
-        .skills-category:nth-child(2)::before {
-            background: linear-gradient(to right, var(--accent-color), #a855f7);
-        }
-        
-        .skills-category:nth-child(3)::before {
-            background: linear-gradient(to right, var(--secondary-color), #059669);
-        }
-        
-        .skills-category:nth-child(4)::before {
-            background: linear-gradient(to right, var(--warning-color), #d97706);
         }
         
         .category-title {
-            font-size: 1.6rem;
-            margin-bottom: 25px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             color: var(--dark-color);
+        }
+        
+        .skills-list {
             display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .category-title::before {
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            font-size: 1.2rem;
-        }
-        
-        .skills-category:nth-child(1) .category-title::before {
-            content: '\f121';
-            color: var(--primary-color);
-        }
-        
-        .skills-category:nth-child(2) .category-title::before {
-            content: '\f5fc';
-            color: var(--accent-color);
-        }
-        
-        .skills-category:nth-child(3) .category-title::before {
-            content: '\f7d9';
-            color: var(--secondary-color);
-        }
-        
-        .skills-category:nth-child(4) .category-title::before {
-            content: '\f0eb';
-            color: var(--warning-color);
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .skill-item {
-            background: rgba(245, 247, 250, 0.8);
-            border-radius: 8px;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: #f5f7fa;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border-left: 4px solid var(--primary-color);
+            font-size: 1rem;
             transition: var(--transition);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
         }
         
         .skill-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+            background: #e0e7ff;
         }
         
-        .skill-name {
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .separator {
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+            margin: 15px 0;
         }
         
-        .skill-icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            border-radius: 5px;
-            font-size: 0.8rem;
-        }
-        
-        .skill-level {
-            font-size: 0.85rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 500;
-        }
-        
-        .level-expert {
-            background-color: rgba(16, 185, 129, 0.2);
-            color: #059669;
-        }
-        
-        .level-advanced {
-            background-color: rgba(37, 99, 235, 0.2);
-            color: #2563eb;
-        }
-        
-        .level-proficient {
-            background-color: rgba(124, 58, 237, 0.2);
-            color: #7c3aed;
-        }
-        
-        .level-intermediate {
-            background-color: rgba(245, 158, 11, 0.2);
-            color: #d97706;
-        }
-        
-        .skill-progress {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 3px;
-            border-radius: 0 3px 3px 0;
-        }
-        
-        .level-expert .skill-progress {
-            background-color: var(--secondary-color);
-            width: 95%;
-        }
-        
-        .level-advanced .skill-progress {
-            background-color: var(--primary-color);
-            width: 80%;
-        }
-        
-        .level-proficient .skill-progress {
-            background-color: var(--accent-color);
-            width: 70%;
-        }
-        
-        .level-intermediate .skill-progress {
-            background-color: var(--warning-color);
-            width: 50%;
-        }
-        
-        .certifications {
-            margin-top: 40px;
-        }
-        
-        .certification-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .certification-item {
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            padding: 20px;
-            transition: var(--transition);
-            border-left: 4px solid var(--primary-color);
-        }
-        
-        .certification-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-        
-        .certification-title {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--dark-color);
-        }
-        
-        .certification-issuer {
-            font-size: 0.85rem;
-            color: var(--gray-color);
-            margin-bottom: 12px;
-        }
-        
-        .certification-date {
-            font-size: 0.8rem;
-            color: var(--gray-color);
-        }
-        
-        .certification-link {
-            margin-top: 10px;
-            display: inline-flex;
-            align-items: center;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 0.85rem;
-            gap: 5px;
-            transition: var(--transition);
-        }
-        
-        .certification-link:hover {
-            color: var(--accent-color);
-        }
-        
-        .skill-icon-container {
-            display: flex;
-            gap: 5px;
-            margin-top: 15px;
-        }
-        
-        .skill-with-icon {
-            position: relative;
-        }
-        
-        .skill-with-icon::before {
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            margin-right: 8px;
-            font-size: 1rem;
-        }
-        
-        .python::before {
-            content: '\f3e2';
-            color: #306998;
-        }
-        
-        .cpp::before {
-            content: '\f121';
-            color: #00599C;
-        }
-        
-        .sql::before {
-            content: '\f1c0';
-            color: #e48e00;
-        }
-        
-        .javascript::before {
-            content: '\f3b9';
-            color: #F7DF1E;
-        }
-        
-        .pytorch::before {
-            content: '\f7b5';
-            color: #EE4C2C;
-        }
-        
-        .scikit::before {
-            content: '\f0c3';
-            color: #F89939;
-        }
-        
-        .numpy::before {
-            content: '\f080';
-            color: #4DABCF;
-        }
-        
-        .transformers::before {
-            content: '\f544';
-            color: #7c3aed;
-        }
-        
-        .opencv::before {
-            content: '\f06e';
-            color: #5C3EE8;
-        }
-        
-        .fastapi::before {
-            content: '\f135';
-            color: #009688;
-        }
-        
-        .neo4j::before {
-            content: '\f201';
-            color: #018bff;
-        }
-        
-        .ollama::before {
-            content: '\f21e';
-            color: #232F3E;
-        }
-        
-        .dl::before {
-            content: '\f5fc';
-            color: #0071C5;
-        }
-        
-        .nlp::before {
-            content: '\f4ad';
-            color: #FF6F61;
-        }
-        
-        .cv::before {
-            content: '\f06e';
-            color: #7F7FFF;
-        }
-        
-        .gnn::before {
-            content: '\f542';
-            color: #9333ea;
-        }
-        
-        .llm::before {
-            content: '\f27a';
-            color: #10b981;
-        }
-        
-        .rag::before {
-            content: '\f002';
-            color: #2563eb;
-        }
-        
-        .prompt::before {
-            content: '\f075';
-            color: #f59e0b;
-        }
-        
-        .db::before {
-            content: '\f1c0';
-            color: #3B5998;
-        }
-        
-        .docker::before {
-            content: '\f395';
-            color: #2496ED;
-        }
-        
-        .git::before {
-            content: '\f1d3';
-            color: #F05032;
-        }
-        
-        .linux::before {
-            content: '\f17c';
-            color: #FCC624;
-        }
-        
-        .cloud::before {
-            content: '\f0c2';
-            color: #4285F4;
-        }
-        
-        .dataviz::before {
-            content: '\f080';
-            color: #ff7675;
-        }
-        
-        .timeseries::before {
-            content: '\f201';
-            color: #00b894;
-        }
-        
-        .webdev::before {
-            content: '\f13b';
-            color: #E44D26;
-        }
-        
-        .api::before {
-            content: '\f085';
-            color: #71a95a;
-        }
-        
-        /* Footer Styles from projects.html */
+        /* Footer Styles */
         footer {
             background-color: var(--dark-color);
             color: white;
@@ -610,16 +252,6 @@
             .menu-item:hover {
                 background: rgba(255,255,255,0.15);
             }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
         }
     </style>
 </head>
@@ -641,232 +273,63 @@
         <div class="container">
             <h1 class="section-title">Technical Skills</h1>
             
-            <div class="section-content">
-                <div class="skills-category">
-                    <h2 class="category-title">Programming Languages</h2>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <span class="skill-name python">Python</span>
-                            <span class="skill-level level-expert">Expert</span>
-                            <div class="skill-progress level-expert"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name cpp">C/C++</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name sql">SQL</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name javascript">JavaScript</span>
-                            <span class="skill-level level-intermediate">Intermediate</span>
-                            <div class="skill-progress level-intermediate"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h2 class="category-title">Data Science & ML</h2>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <span class="skill-name pytorch">PyTorch</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name scikit">Scikit-learn</span>
-                            <span class="skill-level level-expert">Expert</span>
-                            <div class="skill-progress level-expert"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name numpy">NumPy/Pandas</span>
-                            <span class="skill-level level-expert">Expert</span>
-                            <div class="skill-progress level-expert"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name transformers">Transformers</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h2 class="category-title">Tools & Technologies</h2>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <span class="skill-name opencv">OpenCV</span>
-                            <span class="skill-level level-proficient">Proficient</span>
-                            <div class="skill-progress level-proficient"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name fastapi">FastAPI</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name neo4j">Neo4j</span>
-                            <span class="skill-level level-proficient">Proficient</span>
-                            <div class="skill-progress level-proficient"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name ollama">Ollama</span>
-                            <span class="skill-level level-proficient">Proficient</span>
-                            <div class="skill-progress level-proficient"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h2 class="category-title">Other Skills & Interests</h2>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <span class="skill-name dl">Deep Learning</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name nlp">Natural Language Processing</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name cv">Computer Vision</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name gnn">Graph Neural Networks</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name llm">LLM Fine-tuning</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name rag">RAG</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name prompt">Prompt Engineering</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name db">Database Management</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name docker">Docker</span>
-                            <span class="skill-level level-proficient">Proficient</span>
-                            <div class="skill-progress level-proficient"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name git">Git</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name linux">Linux</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name cloud">Cloud Computing</span>
-                            <span class="skill-level level-intermediate">Intermediate</span>
-                            <div class="skill-progress level-intermediate"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name dataviz">Data Visualization</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name timeseries">Time Series Analysis</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name webdev">Web Development</span>
-                            <span class="skill-level level-intermediate">Intermediate</span>
-                            <div class="skill-progress level-intermediate"></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name api">API Development</span>
-                            <span class="skill-level level-advanced">Advanced</span>
-                            <div class="skill-progress level-advanced"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category certifications">
-                    <h2 class="category-title">Certifications</h2>
-                    <div class="certification-grid">
-                        <div class="certification-item">
-                            <h3 class="certification-title">Deep Learning Specialization</h3>
-                            <p class="certification-issuer">DeepLearning.AI</p>
-                            <p class="certification-date">December 2023</p>
-                            <a href="https://www.deeplearning.ai" class="certification-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-                        <div class="certification-item">
-                            <h3 class="certification-title">Machine Learning Engineering for Production</h3>
-                            <p class="certification-issuer">Coursera</p>
-                            <p class="certification-date">August 2024</p>
-                            <a href="https://www.coursera.org" class="certification-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-                        <div class="certification-item">
-                            <h3 class="certification-title">LLMs: Foundation Models from the Ground Up</h3>
-                            <p class="certification-issuer">edX</p>
-                            <p class="certification-date">February 2024</p>
-                            <a href="https://www.edx.org" class="certification-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h2 class="category-title">Learning Resources</h2>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <span class="skill-name github">
-                                <i class="fab fa-github"></i> GitHub Projects
-                            </span>
-                            <a href="https://github.com/yourusername" target="_blank" class="skill-level level-advanced">View Profile</a>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name kaggle">
-                                <i class="fab fa-kaggle"></i> Kaggle Competitions
-                            </span>
-                            <a href="https://www.kaggle.com/yourusername" target="_blank" class="skill-level level-proficient">View Profile</a>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name medium">
-                                <i class="fab fa-medium"></i> Technical Articles
-                            </span>
-                            <a href="https://medium.com/@yourusername" target="_blank" class="skill-level level-intermediate">Read Articles</a>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name papers">
-                                <i class="fas fa-scroll"></i> Research Papers
-                            </span>
-                            <a href="#" target="_blank" class="skill-level level-advanced">View Collection</a>
-                        </div>
-                    </div>
+            <div class="skills-category">
+                <h2 class="category-title">Programming Languages</h2>
+                <div class="separator"></div>
+                <div class="skills-list">
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">C/C++</span>
+                    <span class="skill-item">SQL</span>
+                    <span class="skill-item">JavaScript</span>
                 </div>
             </div>
-        </div>
+
+            <div class="skills-category">
+                <h2 class="category-title">Data Science & ML</h2>
+                <div class="separator"></div>
+                <div class="skills-list">
+                    <span class="skill-item">PyTorch</span>
+                    <span class="skill-item">Scikit-learn</span>
+                    <span class="skill-item">NumPy/Pandas</span>
+                    <span class="skill-item">Transformers</span>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h2 class="category-title">Tools & Technologies</h2>
+                <div class="separator"></div>
+                <div class="skills-list">
+                    <span class="skill-item">OpenCV</span>
+                    <span class="skill-item">FastAPI</span>
+                    <span class="skill-item">Neo4j</span>
+                    <span class="skill-item">Ollama</span>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h2 class="category-title">Other Skills & Interests</h2>
+                <div class="separator"></div>
+                <div class="skills-list">
+                    <span class="skill-item">Deep Learning</span>
+                    <span class="skill-item">Natural Language Processing</span>
+                    <span class="skill-item">Computer Vision</span>
+                    <span class="skill-item">Graph Neural Networks</span>
+                    <span class="skill-item">LLM Fine-tuning</span>
+                    <span class="skill-item">RAG</span>
+                    <span class="skill-item">Prompt Engineering</span>
+                    <span class="skill-item">Database Management</span>
+                    <span class="skill-item">Docker</span>
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">Linux</span>
+                    <span class="skill-item">Cloud Computing</span>
+                    <span class="skill-item">Data Visualization</span>
+                    <span class="skill-item">Time Series Analysis</span>
+                    <span class="skill-item">Web Development</span>
+                    <span class="skill-item">API Development</span>
+                </div>
+            </div>
+
+            
     </main>
 
     <footer>
